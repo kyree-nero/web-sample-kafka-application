@@ -1,0 +1,14 @@
+logging:
+  level:
+    org: 
+      springframework: DEBUG
+spring:
+  kafka:
+    consumer:
+      auto-offset-reset: earliest
+      group-id: sample-groupid
+test:
+  topic: stuff-topic
+kafka:
+  stuff:
+    topic: stuff-topic

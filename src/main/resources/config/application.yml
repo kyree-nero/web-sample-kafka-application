@@ -1,0 +1,15 @@
+management:
+  server:
+    port: 9001
+  endpoints:
+    web:
+      exposure:
+        include: health
+server:
+  port: 8443
+kafka:
+  bootstrapAddress: localhost:9092
+  stuff:
+    topic: stuff-topic
+#management.server.port=9001
+#management.security.enable=true
