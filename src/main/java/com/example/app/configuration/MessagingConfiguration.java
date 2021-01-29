@@ -3,19 +3,25 @@ package com.example.app.configuration;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.annotation.PostConstruct;
+
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;
 import org.springframework.kafka.core.ConsumerFactory;
 import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
 
-
+@Configuration
 public class MessagingConfiguration {
 	 @Value(value = "${kafka.bootstrapAddress}")
 	    private String bootstrapAddress;
 	 
+	 @PostConstruct public void postConstruct() {
+		 System.out.println("bootstrap address "+bootstrapAddress);
+	 }
 	 
 	 public ConsumerFactory<String, String> consumerFactory(String groupId) {
 	        Map<String, Object> props = new HashMap<>();

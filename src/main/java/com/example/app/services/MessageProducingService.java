@@ -13,18 +13,18 @@ public class MessageProducingService {
 	
 	
 	public static class Content {
-		private String data;
+		private String messageData;
 
+		public String getMessageData() {
+			return messageData;
+		}
 
-		public void setData(String data) {
-			this.data = data;
+		public void setMessageData(String messageData) {
+			this.messageData = messageData;
 		}
 
 
-		public String getData() {
-			return data;
-		}
-		
+	
 		
 	}
 	
@@ -36,8 +36,8 @@ public class MessageProducingService {
 		LocalDateTime now = LocalDateTime.now();
 		String s = "doStuff..." + now.toString();
 		Content c = new Content();
-		c.setData(s);
-		kafkaTemplate.send(stuffTopic, c.getData());
+		c.setMessageData(s);
+		kafkaTemplate.send(stuffTopic, c.getMessageData());
 		return c;
 	}
 }	

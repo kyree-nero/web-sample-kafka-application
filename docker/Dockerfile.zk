@@ -1,0 +1,17 @@
+FROM openjdk:11
+MAINTAINER kyree
+
+RUN apt update \
+	&& apt-get install -y  wget telnet\ 
+	&& wget https://apache.claz.org/kafka/2.7.0/kafka_2.13-2.7.0.tgz \
+	&& tar xzf kafka_2.13-2.7.0.tgz \
+	&& mv kafka_2.13-2.7.0 /usr/local/kafka
+	
+WORKDIR /usr/local/kafka
+
+
+ADD docker/zkandkf.startup.sh startup.sh 
+
+RUN chmod 777 startup.sh 
+
+ENTRYPOINT ["/usr/local/kafka/startup.sh"]

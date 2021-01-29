@@ -1,0 +1,7 @@
+spring:
+  kafka:
+    bootstrap-servers: app-zk:9092
+kafka:
+  bootstrapAddress: app-zk:9092
+  stuff:
+    topic: stuff-topic

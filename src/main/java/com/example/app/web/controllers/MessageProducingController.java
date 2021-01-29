@@ -7,11 +7,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.app.services.MessageProducingService;
 
 @RestController
-public class DoStuffController {
+public class MessageProducingController {
 	@Autowired MessageProducingService service;
 	
 	
-	@GetMapping("/doStuff")
+	@GetMapping("/produceMessage")
 	public Object doStuff() {
 		return service.doStuff();
 	}
